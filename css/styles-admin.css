@@ -1,0 +1,358 @@
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  position: absolute;
+  background-color: #2f3345;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+#header {
+  background-color: #f5f5f5;
+  width: 80%;
+  height: 10%;
+  float: right;
+  z-index: 1;
+  align-items: center;
+  border-radius: 1%;
+  overflow: hidden;
+  display: block;
+  color: black;
+  text-align: center;
+}
+.header_search {
+  float: left;
+  margin: 12px 0px 0px 12px;
+}
+
+#search-btn {
+  background: #2f3345;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 0 5px 5px 0;
+  -moz-border-radius: 0 5px 5px 0;
+  -webkit-border-radius: 0 5px 5px 0;
+  -o-border-radius: 0 5px 5px 0;
+  border: 0 none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#search-box {
+  background: #eee;
+  padding: 10px;
+  border-radius: 5px 0 0 5px;
+  -moz-border-radius: 5px 0 0 5px;
+  -webkit-border-radius: 5px 0 0 5px;
+  -o-border-radius: 5px 0 0 5px;
+  border: 0 none;
+  width: 200px;
+}
+
+.header_main {
+  float: right;
+  font-size: 17px;
+  padding: 7px 16px;
+}
+ul {
+  padding: 0;
+  margin: 0;
+}
+li {
+  display: block;
+  height: 47px;
+}
+li ul li {
+  float: none;
+  height: 36px;
+  width: 150px;
+}
+li ul {
+  display: none;
+  position: absolute;
+  z-index: 1;
+}
+li:hover ul {
+  margin-top: 20px;
+  display: block;
+}
+.header_main img {
+  float: left;
+  padding-right: 5px;
+}
+
+/*DROPDOWN STYLING:*/
+
+#menu a {
+  color: #000000;
+  float: left;
+  padding: 5px 25px 20px 15px;
+  font-family: lato;
+}
+#menu a:hover {
+  color: #ffffff;
+}
+#menu li {
+  background-color: #fff;
+  border: solid 1px #ccc;
+}
+#menu li:hover {
+  background-color: #0072ba;
+}
+
+#left_side {
+  float: left;
+  background-color: #767c8b;
+  backdrop-filter: blur(11px);
+  text-align: center;
+  color: azure;
+  height: 100%;
+  width: 20%;
+  z-index: 1;
+}
+
+#right_side {
+  width: 80%;
+  height: 100%;
+  float: right;
+  text-align: center;
+  z-index: -1;
+  background-color: #afa7a7;
+  justify-content: center;
+  align-items: center;
+}
+
+#id {
+  border: 1px solid black;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+#staa {
+  margin-top: 2%;
+}
+
+/*For Buttons*/
+
+.btn-group button {
+  background-color: #767c8b;
+  border: 1px solid #767c8b;
+  color: rgb(0, 0, 0);
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 96%; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+  font-size: 14px;
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #caccca;
+}
+
+.btn {
+  margin-top: 2px;
+}
+
+hr {
+  background-color: black;
+  height: 1px;
+}
+
+/*This is for clock and date */
+#clockdate {
+  margin-top: 12px;
+}
+.clockdate-wrapper {
+  background-color: #333;
+  padding: 30px;
+  max-width: 350px;
+  width: 100%;
+  text-align: center;
+  border-radius: 5px;
+
+  margin: 0 auto;
+}
+#clock {
+  background-color: #333;
+  font-family: digital-7;
+  font-size: 80px;
+  text-shadow: 0px 0px 1px #fff;
+  color: #fff;
+}
+#clock span {
+  color: #888;
+  text-shadow: 0px 0px 1px #333;
+  font-size: 30px;
+  position: relative;
+  top: -27px;
+  left: -10px;
+}
+#date {
+  letter-spacing: 10px;
+  font-size: 24px;
+  font-family: digital-7;
+  color: #fff;
+}
+#main_infos {
+  position: absolute;
+  width: 60%;
+  height: 200px;
+  top: 55%;
+  left: 35%;
+  margin: auto;
+}
+#infos {
+  background-color: rgb(213, 218, 243);
+  margin: 1%;
+  height: 165px;
+  width: 200px;
+  float: left;
+  position: relative;
+  padding-top: 16px;
+  font-family: lato;
+  font-size: 18px;
+}
+
+/*---------------------*/
+
+/*
+#dd-list {
+  
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  
+  flex: auto;
+  flex-wrap: wrap;
+  padding: 0 2em;
+  color: #fff;
+  background-color: var(--green);
+  background-image: none;
+  cursor: pointer;
+  font-family: fontAwesome, lato;
+  font-size: 16px;
+  text-align-last: center;
+}
+
+#dd-list::-ms-expand {
+  display: none;
+  font-family: fontAwesome;
+}
+
+.select {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 20em;
+  height: 2.5em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0 1em;
+  font-size: 12px;
+  background-color: #34495e;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+
+.select:hover::after {
+  color: #f39c12;
+}
+
+*/
+
+#marks-dd-list {
+  /* Reset Select */
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 2 1 auto;
+  padding: 0 4em;
+  color: rgb(0, 0, 0);
+  background-color: var(--green);
+  background-image: none;
+  cursor: pointer;
+  font-family: fontAwesome, lato;
+  font-size: 16px;
+  text-align-last: center;
+}
+/* Remove IE arrow */
+#marks-dd-list::-ms-expand {
+  display: none;
+  font-family: fontAwesome;
+}
+.selectt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 20em;
+  height: 2.5em;
+  border-radius: 0.25em;
+  overflow: hidden;
+}
+/* Arrow */
+.selectt::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  font-size: 12px;
+  background-color: #34495e;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+/* Transition */
+.selectt:hover::after {
+  color: #f39c12;
+}
+
+/*Courses style*/
+
+/*table design*/
+.center {
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#stytable {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 60%;
+}
+
+#stytd,
+#stytr {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  padding-left: 20px;
+}
+
+#stytr:nth-child(even) {
+  background-color: #dddddd;
+}
