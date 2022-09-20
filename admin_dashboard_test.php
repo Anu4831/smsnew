@@ -724,3 +724,48 @@
 
 
 
+<!--code for show sts-->
+<?php
+if (isset($_POST['show_students'])) {
+	$n = '0';
+?>
+	<center>
+		<h2>Total Students</h2>
+	</center>
+
+<?php
+	$connection = mysqli_connect("localhost", "root", "");
+	$db = mysqli_select_db($connection, "sms");
+	$query = "select * from students";
+	$query_run = mysqli_query($connection, $query);
+
+	echo "<center><form action='add_student.php' method='post'>
+	<table style='width: 50%;
+	 border-collapse: collapse;
+	 padding left:40px id='stytable';
+	 '>
+							<thead>
+							<tr id='stytr'>
+								<td id='stytd' ><b>Roll No.</b></td>
+								<td id='stytd'><b>Name</b></td>
+								<td id='stytd'><b>Class</b></td>
+								<td id='stytd'><b>Total Days</b></td>
+
+								<td id='stytd'><b>Present Days</b></td>
+								
+							</tr>
+							</thead>";
+	while ($row = mysqli_fetch_assoc($query_run)) {
+		echo "<tr id='stytr'>";
+		echo "<td id='stytd'>" . $row['roll_no'] . "</td>";
+		echo "<td id='stytd'>" . $row['name'] . "</td>";
+		echo "<td id='stytd'>" . $row['class'] . "</td>";
+		echo "<td id='stytd'>45</td>";
+		echo "<td id='stytd'>" . $row['attendance'] . "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
+	echo "</form>";
+	echo "</center>";
+}
+?>

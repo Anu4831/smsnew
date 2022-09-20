@@ -24,6 +24,7 @@
                 <button class="button-rgb" role="button" name="admin_login" type="submit">Admin Login</button>
 
                 <button class="button-rgb" role="button" name="student_login" type="submit">Student Login</button>
+                <button class="button-rgb" role="button" name="teacher_login" type="submit">Teacher Login</button>
             </form>
             <?php
             if (isset($_POST['admin_login'])) {
@@ -31,6 +32,9 @@
             }
             if (isset($_POST['student_login'])) {
                 header("Location: student_login.php");
+            }
+            if (isset($_POST['teacher_login'])) {
+                header("Location: teacher_login.php");
             }
             ?>
         </center>

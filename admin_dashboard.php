@@ -80,13 +80,17 @@
 						<button class="btn" role="button" name="add_new_student" type="submit" value="add_new_student"><i class="fa fa-user-plus" aria-hidden="true"></i> Add Student</button>
 						<button class="btn" role="button" name="delete_student" type="submit" value="delete_student"><i class="fa fa-user-times" aria-hidden="true"></i> Delete Student</button>
 						<button class="btn" role="button" name="show_students" type="submit" value="show_students"><i class="fa fa-users" aria-hidden="true"></i> Total Students</button>
-						<button class="btn" role="button" name="show_attendance" type="submit" value="show_attendance"><i class="fa fa-check-square-o" aria-hidden="true"></i> Show Attendance</button>
+						<!--<button class="btn" role="button" name="show_attendance" type="submit" value="show_attendance"><i class="fa fa-check-square-o" aria-hidden="true"></i> Show Attendance</button>-->
 						<button class="btn" role="button" name="courses" type="submit" value="courses"><i class="fa fa-book" aria-hidden="true"></i>Courses</button>
 						<button class="btn" role="button" name="edit_course" type="submit" value="edit_course"><i class="fa fa-book" aria-hidden="true"></i>Edit Course</button>
+						<button class="btn" role="button" name="delete_courses" type="submit" value="delete_courses"><i class="fa fa-user-times" aria-hidden="true"></i> Delete Courses</button>
+						<button class="btn" role="button" name="attendance" type="submit" value="attendance"><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Attendance</button>
+						<button class="btn" role="button" name="show_teacher" type="submit" value="show_teacher"><i class="fa fa-user-secret" aria-hidden="true"></i> Teachers</button>
 						<div class="selectt" style="width:94%;">
 							<form action="" method="post">
 								<select id="marks-dd-list">
-									<option value="0" noselection>&#xf0c0; Manage Marks</option>
+									<!--<option value="0" noselection>&#xf0c0; Manage Marks</option>-->
+									<option value="0" noselection>&#xf046; Manage Marks</option>
 									<option value="show_marks"> Show Marks</option>
 									<option value="add_new_marks"> Add Marks</option>
 									<option value="edit_marks"> Edit Marks</option>
@@ -189,14 +193,7 @@
 								<?php echo $row['password'] ?>
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<b>Attendance:</b>
-							</td>
-							<td>
-								<?php echo $row['attendance'] ?>
-							</td>
-						</tr>
+
 
 					</table>
 			<?php
@@ -414,14 +411,7 @@
 								<input type="password" name="password" required>
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<b>Attendance:</b>
-							</td>
-							<td>
-								<input type="number" value="0" name="attendance" required>
-							</td>
-						</tr>
+
 						<tr>
 							<td></td>
 							<td><br><input type="submit" name="add" value="Add Student" style="width: 100px; background-color: #708090; "></td>
@@ -556,7 +546,7 @@ if (isset($_POST['edit_course'])) {
 	<div id=staa>
 		<center>
 			<form action="" method="post">
-				&nbsp;&nbsp;<b>Enter Course Id : </b>&nbsp;&nbsp; <input type="text" name="course_id">
+				&nbsp;&nbsp;<b>Enter Course Id : </b>&nbsp;&nbsp; <input type="text" name="course_id" style=" border-radius: 5px;">
 				<input type="submit" name="search_by_course_id_for_edit" value="Search">
 			</form><br><br>
 		</center>
@@ -579,12 +569,12 @@ if (isset($_POST['search_by_course_id_for_edit'])) {
 			}
 
 			input {
-				width: 300%;
-				width: 300%;
+				width: 200%;
+				width: 200%;
 				padding: 4px 4px;
 				margin: 2px 0;
 				box-sizing: border-box;
-				border-radius: 20px;
+				border-radius: 5px;
 			}
 		</style>
 		<form action="edit_courses.php" method="post">
@@ -611,7 +601,7 @@ if (isset($_POST['search_by_course_id_for_edit'])) {
 				</tr>
 
 				<td>
-					<input type="submit" name="edit" value="Save">
+					<input type="submit" name="edit" value="Save" style="width: 100px; margin-left: 105%; background-color: #708090; ">
 				</td>
 				</tr>
 			</table>
@@ -620,8 +610,32 @@ if (isset($_POST['search_by_course_id_for_edit'])) {
 	}
 }
 ?>
+<!-- #Code for edit course---Start-->
+<?php
+if (isset($_POST['delete_courses'])) {
+	$n = '0';
+?>
+	<div id=staa>
+		<style>
+			input {
+				padding: 4px 4px;
+				margin: 2px 0;
+				box-sizing: border-box;
+				border-radius: 5px;
+			}
+		</style>
+		<center>
+			<form action="delcourses.php" method="post">
+				&nbsp;&nbsp;<b>Enter Course ID:</b>&nbsp;&nbsp; <input type="text" name="course_id">
+				<input type="submit" name="search_by_course_id_for_delete" value="Delete">
+			</form><br><br>
+		</center>
+	</div>
+<?php
+}
+?>
 
-
+<!--code for show sts-->
 <?php
 if (isset($_POST['show_students'])) {
 	$n = '0';
@@ -646,8 +660,8 @@ if (isset($_POST['show_students'])) {
 								<td id='stytd' ><b>Roll No.</b></td>
 								<td id='stytd'><b>Name</b></td>
 								<td id='stytd'><b>Class</b></td>
-								<td id='stytd'><b>Total Days</b></td>
-								<td id='stytd'><b>Present Days</b></td>
+								<td id='stytd'><b>Email</b></td>
+								
 								
 							</tr>
 							</thead>";
@@ -656,8 +670,7 @@ if (isset($_POST['show_students'])) {
 		echo "<td id='stytd'>" . $row['roll_no'] . "</td>";
 		echo "<td id='stytd'>" . $row['name'] . "</td>";
 		echo "<td id='stytd'>" . $row['class'] . "</td>";
-		echo "<td id='stytd'>45</td>";
-		echo "<td id='stytd'>" . $row['attendance'] . "</td>";
+		echo "<td id='stytd'>" . $row['email'] . "</td>";
 		echo "</tr>";
 	}
 	echo "</table>";
@@ -681,7 +694,7 @@ if (isset($_POST['show_attendance'])) {
 	$query = "select * from students";
 	$query_run = mysqli_query($connection, $query);
 
-	echo "<center><form action='add_student.php' method='post'>
+	echo "<center>
 	<table style='width: 50%;
 	 border-collapse: collapse;
 	 padding left:40px; id='stytable'
@@ -710,11 +723,57 @@ if (isset($_POST['show_attendance'])) {
 		echo "<td id='stytd'>" . $row['class'] . "</td>";
 		echo "<td id='stytd'>45</td>";
 		echo "<td id='stytd'>" . $row['attendance'] . "</td>";
-		echo "<td id='stytd'><input type='checkbox' name='present' ></td>";
+		echo "<td id='stytd'><input type='checkbox' name='present' value='Yes' ></td>";
+
 		echo "</tr>";
 	}
 	echo "</table>";
 	echo '<input type="submit" name="submit" value="submit">';
+	echo "</form>";
+	echo "</center>";
+}
+?>
+
+
+<?php
+if (isset($_POST['show_teacher'])) {
+	$n = '0';
+?>
+	<center>
+		<h2>Teachers</h2>
+	</center>
+
+<?php
+	$connection = mysqli_connect("localhost", "root", "");
+	$db = mysqli_select_db($connection, "sms");
+	$query = "select * from teachers";
+	$query_run = mysqli_query($connection, $query);
+
+	echo "<center>
+	<table style='width: 50%;
+	 border-collapse: collapse;
+	 padding left:40px id='stytable';
+	 '>
+							<thead>
+							<tr id='stytr'>
+								<td id='stytd' ><b>t_id</b></td>
+								<td id='stytd'><b>Name</b></td>
+								<td id='stytd'><b>Mobile</b></td>
+								
+								<td id='stytd'><b>Email</b></td>
+								
+							</tr>
+							</thead>";
+	while ($row = mysqli_fetch_assoc($query_run)) {
+		echo "<tr id='stytr'>";
+		echo "<td id='stytd'>" . $row['t_id'] . "</td>";
+		echo "<td id='stytd'>" . $row['name'] . "</td>";
+		echo "<td id='stytd'>" . $row['mobile'] . "</td>";
+
+		echo "<td id='stytd'>" . $row['email'] . "</td>";
+		echo "</tr>";
+	}
+	echo "</table>";
 	echo "</form>";
 	echo "</center>";
 }

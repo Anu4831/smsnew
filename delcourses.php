@@ -1,12 +1,13 @@
-<?php
-$connection = mysqli_connect("localhost", "root", "");
-$db = mysqli_select_db($connection, "sms");
-$query = "insert into courses values($_POST[id],$_POST[course],
-$_POST[date_created]
-)";
-$query_run = mysqli_query($connection, $query);
-?>
 <script type="text/javascript">
-    alert("Courses deleted successfully.");
-    window.location.href = "admin_dashboard.php";
+    if (confirm("Are you sure want to delete ?")) {
+        document.write("<?php
+                        $connection = mysqli_connect("localhost", "root", "");
+                        $db = mysqli_select_db($connection, "sms");
+                        $query = "delete from courses where id = $_POST[course_id]";
+                        $query_run = mysqli_query($connection, $query);
+                        ?>");
+        window.location.href = "admin_dashboard.php";
+    } else {
+        window.location.href = "admin_dashboard.php";
+    }
 </script>

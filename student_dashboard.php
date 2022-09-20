@@ -24,7 +24,7 @@
 </head>
 
 <body onload="startTime()">
-	
+
 	<div id="header">
 
 		<!--<div class="header_search">
@@ -37,18 +37,18 @@
 
 
 
-	<div class="header_main">
-		<ul id='menu'>
-			<li style="border-top-width: 0px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px">
-				<img src="/SMS/image/icons/student-icon.png" width="42" height="38">
-				<a href='#' style="padding: 10px 15px 0px 0px;"><?php echo $_SESSION['name']; ?></a>
-				<ul style="padding-top:32px;right:0.7%;">
-					<li><a href='#' style=" font-size: 16px;"><?php echo $_SESSION['email']; ?></a></li>
-					<li><a href="logout.php" style=" font-size: 16px;">Logout</a></li>
-				</ul>
-			</li>
-		</ul>
-	</div>
+		<div class="header_main">
+			<ul id='menu'>
+				<li style="border-top-width: 0px;border-left-width: 0px;border-right-width: 0px;border-bottom-width: 0px">
+					<img src="/SMS/image/icons/student-icon.png" width="42" height="38">
+					<a href='#' style="padding: 10px 15px 0px 0px;"><?php echo $_SESSION['name']; ?></a>
+					<ul style="padding-top:32px;right:0.7%;">
+						<li><a href='#' style=" font-size: 16px;"><?php echo $_SESSION['email']; ?></a></li>
+						<li><a href="logout.php" style=" font-size: 16px;">Logout</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
 
 
 
@@ -66,9 +66,9 @@
 			<form action="" method="post">
 				<center>
 					<div class="btn-group">
-						<button class="btn" role="button" name="edit_detail" type="submit" value="edit_detail"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Details</button>
+						<button class="btn" role="button" name="edit_detail" type="submit" value="edit_detail"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit Detail</button>
 						<button class="btn" role="button" name="show_detail" type=" submit" value="show_detail"><i class="fa fa-users" aria-hidden="true"></i> Show Details</button>
-						<button class="btn" role="button" name="show_attendance" type="submit" value="show_attendance"><i class="fa fa-check-square-o" aria-hidden="true"></i> Show Attendance</button>
+
 						<button class="btn" role="button" name="courses" type="submit" value="courses"><i class="fa fa-book" aria-hidden="true"></i>Courses</button>
 						<button class="btn" role="button" name="show_marks" type="submit" value="show_marks"><i class="fa fa-file-text-o" aria-hidden="true"></i> Show Marks</button>
 
@@ -172,14 +172,7 @@
 								<?php echo $row['password'] ?>
 							</td>
 						</tr>
-						<tr>
-							<td>
-								<b>Attendance:</b>
-							</td>
-							<td>
-								<?php echo $row['attendance'] ?>
-							</td>
-						</tr>
+
 
 				<?php
 				}
@@ -187,7 +180,7 @@
 				?>
 				<!--EDit details-->
 				<?php
-				if (isset($_POST['edit_details'])) {
+				if (isset($_POST['edit_detail'])) {
 					$n = '0';
 					$query = "select * from students where email = '$_SESSION[email]'";
 					$query_run = mysqli_query($connection, $query);
@@ -299,8 +292,7 @@
 								<td id='stytd'><b>Roll NO.</b></td>
 								<td id='stytd'><b>Name</b></td>
 								<td id='stytd'><b>Class</b></td>
-								<td id='stytd'><b>Total Days</b></td>
-								<td id='stytd'><b>Present Days</b></td>
+								
 							</tr>
 							</thead>";
 					while ($row = mysqli_fetch_assoc($query_run)) {
@@ -309,8 +301,7 @@
 							echo "<td id='stytd'>" . $row['roll_no'] . "</td>";
 							echo "<td id='stytd'>" . $row['name'] . "</td>";
 							echo "<td id='stytd'>" . $row['class'] . "</td>";
-							echo "<td id='stytd'>45</td>";
-							echo "<td id='stytd'>" . $row['attendance'] . "</td>";
+
 							echo "</tr>";
 						}
 					}
